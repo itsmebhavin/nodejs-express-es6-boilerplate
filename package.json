@@ -1,0 +1,55 @@
+{
+  "name": "node-es6-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "lint": "eslint src",
+    "build": "babel --presets es2015 src --source-maps --out-dir build",
+    "start": "node build/app"
+  },
+  "author": "",
+  "license": "ISC",
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parser": "babel-eslint",
+    "presets": [
+      "es2015",
+      "babili"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true,
+      "es6": true,
+      "production": {
+        "presets": [
+          "babili"
+        ]
+      }
+    },
+    "rules": {
+      "vars-on-top": 2,
+      "no-undef": 2,
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-preset-babili": "0.0.2",
+    "babel-preset-es2015": "^6.14.0",
+    "eslint": "^3.5.0"
+  }
+}
