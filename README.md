@@ -36,6 +36,13 @@ Sample boilerplate project for node.js and express using ES6 and Babel.
   -> users
 ```
 
+### How to Run
+  ```
+  > npm install 
+  > npm run build
+  > npm run start
+  > npm run lint
+  ```
 
 ##### Repository
 ```
