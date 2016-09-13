@@ -42,7 +42,9 @@
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.1",
     "express": "^4.14.0",
-    "morgan": "^1.7.0"
+    "moment": "^2.15.0",
+    "morgan": "^1.7.0",
+    "winston": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",

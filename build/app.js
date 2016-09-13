@@ -24,6 +24,10 @@ var _cors = require('cors');
 
 var _cors2 = _interopRequireDefault(_cors);
 
+var _winstonLogger = require('./helpers/winston-logger');
+
+var _winstonLogger2 = _interopRequireDefault(_winstonLogger);
+
 var _index = require('./routes/index');
 
 var _index2 = _interopRequireDefault(_index);
@@ -35,9 +39,45 @@ var _users2 = _interopRequireDefault(_users);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //using let
+var logger = new _winstonLogger2.default();
+//-----------------------------------------------
+
+console.log(logger);
 var app = (0, _express2.default)();
 
-// configure CORS for local dev
+/*
+ * Sample way to use winston info and error logger. Info logger comes below error access level so it will have all your information + errors.
+ * { error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }
+ * @private
+ */
+logger.info('Hello logger');
+logger.info('Hello Info', {
+    anything: 'this is metdata'
+});
+logger.error('errorlog', 'Hello Error');
+logger.info('Hello Info', {
+    anything: 'this is metdata'
+});
+logger.log('info', 'test message %s', 'my string'); // info: test message my string
+logger.log('info', 'test message %d', 123); // info: test message 123
+logger.log('info', 'test message %j', {
+    number: 123
+}, {}); // info: test message {"number":123} & meta = {}
+logger.log('info', 'test message %s, %s', 'first', 'second', {
+    number: 123
+}); // info: test message first, second & meta = {number: 123}
+logger.log('info', 'test message', 'first', 'second', {
+    number: 123
+}); // info: test message first second &  meta = {number: 123}
+logger.log('info', 'test message %s, %s', 'first', 'second', {
+    number: 123
+}, function () {}); // info: test message first, second &  meta = {number: 123} with callback = function(){}
+logger.log('info', 'test message', 'first', 'second', {
+    number: 123
+}, function () {}); // info: test message first second & meta = {number: 123} with callback = function(){}
+/* END of winston Logger examples */
+
+// General Express and Node API Settings - configure CORS for local dev
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization');
@@ -45,7 +85,6 @@ app.use(function (req, res, next) {
     next();
 });
 app.use((0, _cors2.default)());
-
 app.use((0, _morgan2.default)('dev'));
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({
@@ -53,15 +92,12 @@ app.use(_bodyParser2.default.urlencoded({
 }));
 app.use((0, _cookieParser2.default)());
 app.use(_express2.default.static(_path2.default.join(__dirname, 'public')));
-//
-// app.use('/',(req,res)=>{
-//   res.json("Hello from ES6");
-// })
+//Settings END
 
 app.use('/', _index2.default);
 app.use('/users', _users2.default);
 
-// using arrow syntax
+// using arrow syntax for general API not found
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
