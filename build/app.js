@@ -45,6 +45,13 @@ var logger = new _winstonLogger2.default();
 console.log(logger);
 var app = (0, _express2.default)();
 
+//This is an example for ES6 template string
+var person = {
+    name: 'John Doe'
+};
+console.log('My name is ' + person.name);
+//END of template string 
+
 /*
  * Sample way to use winston info and error logger. Info logger comes below error access level so it will have all your information + errors.
  * { error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }
@@ -135,4 +142,3 @@ var server = app.listen(3000, function () {
 
     console.log('Example app listening at http://' + address + ':' + port);
 });
-//# sourceMappingURL=app.js.map

@@ -15,6 +15,13 @@ let logger = new Logger();
 console.log(logger);
 let app = express();
 
+//This is an example for ES6 template string
+const person = {
+  name: 'John Doe'
+};
+console.log(`My name is ${person.name}`);
+//END of template string 
+
 /*
  * Sample way to use winston info and error logger. Info logger comes below error access level so it will have all your information + errors.
  * { error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }

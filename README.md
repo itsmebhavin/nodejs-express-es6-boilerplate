@@ -18,7 +18,9 @@ Sample boilerplate project for node.js and express using ES6 and Babel.
   "babel-eslint": "^6.1.2",
   "babel-preset-babili": "0.0.2",
   "babel-preset-es2015": "^6.14.0",
-  "eslint": "^3.5.0"
+  "eslint": "^3.5.0",
+  "gulp": "^3.9.1",
+  "gulp-babel": "^6.1.2"
 }
 ```
 
@@ -29,6 +31,7 @@ Sample boilerplate project for node.js and express using ES6 and Babel.
   - Route based API layout
   - CORS ready for localhost development
   - Linting equipped
+  - Equipped with Gulp 
 
 ### Routes
 ```
@@ -38,11 +41,13 @@ Sample boilerplate project for node.js and express using ES6 and Babel.
 
 ### How to Run
   ```
-  > npm install 
+  > npm install
   > npm run build
   > npm run start
   > npm run lint
   ```
+
+### Dockerizing this app is coming soon!
 
 ##### Repository
 ```

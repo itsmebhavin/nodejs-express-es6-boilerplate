@@ -19,4 +19,3 @@ router.get('/', function (req, res) {
 });
 // Exporting an object as the default import for this module
 exports.default = router;
-//# sourceMappingURL=index.js.map
