@@ -31,7 +31,7 @@ Sample boilerplate project for node.js and express using ES6 and Babel.
   - Route based API layout
   - CORS ready for localhost development
   - Linting equipped
-  - Equipped with Gulp 
+  - Equipped with Gulp
 
 ### Routes
 ```
@@ -45,6 +45,15 @@ Sample boilerplate project for node.js and express using ES6 and Babel.
   > npm run build
   > npm run start
   > npm run lint
+
+  --Direct babel commands
+  > npm install babel-cli -g
+  > babel ./src //This will transpile all es6 files to js
+
+  --Direct Gulp commands
+  > npm install gulp-cli -g
+  > gulp build //This will transpile all es6 files to js
+  > gulp  //This will start watch on .src folder
   ```
 
 ### Dockerizing this app is coming soon!
